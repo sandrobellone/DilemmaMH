@@ -1,0 +1,50 @@
+    // Copyright 2015 Sandro Bellone
+	
+    // This program is free software: you can redistribute it and/or modify
+    // it under the terms of the GNU General Public License as published by
+    // the Free Software Foundation, either version 3 of the License, or
+    // (at your option) any later version.
+
+    // This program is distributed in the hope that it will be useful,
+    // but WITHOUT ANY WARRANTY; without even the implied warranty of
+    // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    // GNU General Public License for more details.
+
+    // You should have received a copy of the GNU General Public License
+    // along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+#include <windows.h>
+#include <commctrl.h>
+#include <richedit.h>
+#include "resource.h"
+
+
+LANGUAGE LANG_NEUTRAL, SUBLANG_NEUTRAL
+IDD_DIALOG1 DIALOG 0, 0, 290, 289
+STYLE DS_3DLOOK | DS_CENTER | DS_MODALFRAME | DS_SHELLFONT | WS_CAPTION | WS_VISIBLE | WS_POPUP | WS_SYSMENU
+CAPTION "Il dilemma di Monty Hall "
+FONT 8, "Ms Shell Dlg"
+{
+    EDITTEXT        IDC_EC_ITE, 90, 45, 56, 14, ES_CENTER | ES_AUTOHSCROLL, WS_EX_LEFT
+    AUTORADIOBUTTON "conferma la scelta randomicamente", IDC_RB_RAND, 20, 80, 127, 8, WS_TABSTOP, WS_EX_LEFT
+    AUTORADIOBUTTON "conferma sempre la scelta", IDC_RB_SEMPRE, 20, 100, 98, 8, WS_TABSTOP, WS_EX_LEFT
+    AUTORADIOBUTTON "cambia sempre la scelta", IDC_RB_MAI, 20, 120, 91, 8, WS_TABSTOP, WS_EX_LEFT
+    AUTORADIOBUTTON "cambia scelta la metà delle volte, alternativamente", IDC_RB_ALT, 20, 140, 174, 8, WS_TABSTOP, WS_EX_LEFT
+    PUSHBUTTON      "Avvia elaborazione", IDC_BT_AVVIA, 215, 64, 65, 14, 0, WS_EX_LEFT
+    PUSHBUTTON      "STOP", IDC_BT_STOP, 215, 90, 50, 14, NOT WS_VISIBLE, WS_EX_LEFT
+    PUSHBUTTON      "ESCI", IDC_BT_ESCI, 215, 123, 21, 14, 0, WS_EX_LEFT
+    EDITTEXT        IDC_EC_NITE, 120, 180, 60, 14, WS_DISABLED | ES_AUTOHSCROLL, WS_EX_LEFT
+    GROUPBOX        "Output", 0, 9, 167, 192, 106, 0, WS_EX_LEFT
+    GROUPBOX        "Input", 0, 9, 27, 191, 132, 0, WS_EX_LEFT
+    LTEXT           "Numero iterazioni:", 0, 20, 50, 57, 9, SS_LEFT, WS_EX_LEFT
+    LTEXT           "Simulazione del dilemma di Monty Hall ", 0, 65, 13, 123, 9, SS_LEFT, WS_EX_LEFT
+    EDITTEXT        IDC_EC_NSE, 120, 220, 60, 14, WS_DISABLED | ES_AUTOHSCROLL, WS_EX_LEFT
+    LTEXT           "Numero iterazioni:", 0, 20, 185, 57, 9, SS_LEFT, WS_EX_LEFT
+    LTEXT           "Numero degli scambi effettuati:", 0, 20, 225, 98, 9, SS_LEFT, WS_EX_LEFT
+    EDITTEXT        IDC_EC_NS, 120, 200, 60, 14, WS_DISABLED | ES_AUTOHSCROLL, WS_EX_LEFT
+    EDITTEXT        IDC_EC_NSS, 120, 244, 60, 14, WS_DISABLED | ES_AUTOHSCROLL, WS_EX_LEFT
+    LTEXT           "Numero dei successi:", 0, 20, 205, 68, 9, SS_LEFT, WS_EX_LEFT
+    LTEXT           "Numero dei successi\r\nin seguito ad uno scambio:", 0, 20, 245, 85, 17, SS_LEFT, WS_EX_LEFT
+    PUSHBUTTON      "RESET", IDC_BT_RST, 215, 40, 29, 14, 0, WS_EX_LEFT
+    PUSHBUTTON      "ABOUT", IDC_BT_ABOUT, 215, 240, 30, 14, 0, WS_EX_LEFT
+}
