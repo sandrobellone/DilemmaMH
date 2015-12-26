@@ -46,14 +46,14 @@ void OnDlgClose(HWND hWnd) {
 BOOL OnDlgInitDialog(HWND hwndDlg, HWND hwndFocus, LPARAM lParam) {
 	SetDlgItemText(hwndDlg, IDC_EC_ITE,"1000");
 	CheckRadioButton(hwndDlg,IDC_RB_RAND,IDC_RB_ALT,IDC_RB_RAND);
+	return 0;
 }
 
 void OnDlgCommand(HWND hwndDlg, int wId, HWND hwndCtl, UINT wNotifica) {
 	if(wNotifica==BN_CLICKED && wId == IDC_BT_AVVIA) {
-		int x, y, z, c, i, j,nite;
+		int x, y, z, c, i, nite;
 		int numero_successi=0, numero_scambi=0, numero_successi_con_scambio=0,
 		    numero_successi_senza_scambio=0;
-		char buff[10];
 		nite=GetDlgItemInt(hwndDlg,IDC_EC_ITE,NULL,FALSE);
 		for (i=0; i<nite; i++) {
 			x=scelta(3);		// ok
@@ -91,7 +91,9 @@ void OnDlgCommand(HWND hwndDlg, int wId, HWND hwndCtl, UINT wNotifica) {
 	} else if(wNotifica==BN_CLICKED && wId == IDC_BT_ABOUT) {
 		char testo[100];
 		sprintf(testo,"Software di simulazione del dilemma di Monty Hall\n"
-						"Sandro Bellone\nNovembre 2015");
+						"Sandro Bellone\nNovembre 2015\n\n"
+						"Copyright 2015 Sandro Bellone\n"
+						"GNU General Public License vers. 3");
 		MessageBox(0, testo, "About", MB_OK);
 	}
 }
@@ -115,7 +117,7 @@ int terza_scelta(int x, int y) { // dati due numeri differenti da 1 a 3, ritorna
 	return 0;
 }
 
-int escludi_vera(x,y) {			// sceglie un numero sbagliato
+int escludi_vera(int x, int y) {			// sceglie un numero sbagliato
 	int k;
 	if (x==y) {
 		k=scelta(2);
