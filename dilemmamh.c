@@ -22,6 +22,7 @@
 #include<windowsx.h>
 #include"resource.h"
 #include<time.h>
+#include<stdlib.h>
 #include<stdio.h>
 
 int scelta (int);
